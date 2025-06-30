@@ -1,0 +1,27 @@
+ * Serving Flask app 'app'
+ * Debug mode: on
+2025-06-30 01:23:27,879 - INFO - [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5001
+ * Running on http://192.168.0.2:5001
+2025-06-30 01:23:27,879 - INFO - [33mPress CTRL+C to quit[0m
+2025-06-30 01:23:27,880 - INFO -  * Restarting with stat
+2025-06-30 01:23:28,217 - WARNING -  * Debugger is active!
+2025-06-30 01:23:28,218 - INFO -  * Debugger PIN: 242-625-352
+2025-06-30 01:23:32,323 - INFO - File test_emails.txt uploaded successfully to uploads/test_emails.txt
+2025-06-30 01:23:32,324 - INFO - Created output directory for job 5991efc9-5d04-4aea-a727-d49e1c3b0711: /app/backend/static/results_data/5991efc9-5d04-4aea-a727-d49e1c3b0711
+2025-06-30 01:23:32,324 - INFO - Starting email processing for job 5991efc9-5d04-4aea-a727-d49e1c3b0711 with input file uploads/test_emails.txt
+2025-06-30 01:23:32,342 - WARNING - Domain does not exist: nonexistentdomain123456789.com
+2025-06-30 01:23:32,352 - ERROR - SMTP Check Error for valid@example.com on .: label empty or too long
+2025-06-30 01:23:32,604 - INFO - Progress: 6/6 emails processed.
+2025-06-30 01:23:32,605 - INFO -
+--- Validation Summary ---
+2025-06-30 01:23:32,605 - INFO - Total Emails Processed: 6
+2025-06-30 01:23:32,605 - INFO - Valid: 2
+2025-06-30 01:23:32,605 - INFO - Invalid Format: 2
+2025-06-30 01:23:32,605 - INFO - No MX Record: 1
+2025-06-30 01:23:32,605 - INFO - Undeliverable (SMTP): 1
+2025-06-30 01:23:32,606 - INFO - Email processing completed for job 5991efc9-5d04-4aea-a727-d49e1c3b0711. Stats: {'total': 6, 'valid': 2, 'invalid_format': 2, 'no_mx_record': 1, 'undeliverable_smtp': 1, 'other': 0}
+2025-06-30 01:23:32,606 - INFO - File URLs: valid='http://localhost:5001/static/results_data/5991efc9-5d04-4aea-a727-d49e1c3b0711/valid_emails.txt', csv='http://localhost:5001/static/results_data/5991efc9-5d04-4aea-a727-d49e1c3b0711/results.csv'
+2025-06-30 01:23:32,606 - INFO - Cleaned up temporary file: uploads/test_emails.txt
+2025-06-30 01:23:32,607 - INFO - 127.0.0.1 - - [30/Jun/2025 01:23:32] "POST /api/upload HTTP/1.1" 200 -

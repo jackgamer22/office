@@ -1,0 +1,22 @@
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0100   911  100   560  100   351   1938   1214 --:--:-- --:--:-- --:--:--  3163
+{
+  "data": {
+    "files": {
+      "results_csv_url": "http://localhost:5001/static/results_data/5991efc9-5d04-4aea-a727-d49e1c3b0711/results.csv",
+      "valid_emails_url": "http://localhost:5001/static/results_data/5991efc9-5d04-4aea-a727-d49e1c3b0711/valid_emails.txt"
+    },
+    "job_id": "5991efc9-5d04-4aea-a727-d49e1c3b0711",
+    "stats": {
+      "invalid_format": 2,
+      "no_mx_record": 1,
+      "other": 0,
+      "total": 6,
+      "undeliverable_smtp": 1,
+      "valid": 2
+    }
+  },
+  "message": "File processed successfully.",
+  "success": true
+}

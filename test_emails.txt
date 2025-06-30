@@ -1,0 +1,6 @@
+valid@example.com
+invalid-email
+test@nonexistentdomain123456789.com
+another.valid.email@gmail.com
+no.mx.record@example.invalid
+noreply@github.com

@@ -1,0 +1,7 @@
+Email,Status
+no.mx.record@example.invalid,Invalid Format
+invalid-email,Invalid Format
+test@nonexistentdomain123456789.com,No MX Record
+valid@example.com,Undeliverable (SMTP Check Failed)
+noreply@github.com,Valid
+another.valid.email@gmail.com,Valid
