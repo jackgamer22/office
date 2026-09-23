@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MagxxxVot PRO - Advanced Email & Leads Extractor</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Sidebar Navigation -->
+    <aside class="sidebar">
+      <div class="brand">
+        <i class="fa-solid fa-bolt brand-icon"></i>
+        <h2>MagxxxVot <span class="highlight">PRO</span></h2>
+      </div>
+
+      <nav class="nav-menu">
+        <button class="nav-btn active" data-tab="tab-linkedin">
+          <i class="fa-brands fa-linkedin"></i> LinkedIn Engine
+        </button>
+        <button class="nav-btn" data-tab="tab-extractor">
+          <i class="fa-solid fa-magnifying-glass"></i> Multi-Source Extractor
+        </button>
+        <button class="nav-btn" data-tab="tab-queue">
+          <i class="fa-solid fa-location-dot"></i> Location Queue (50+)
+        </button>
+        <button class="nav-btn" data-tab="tab-results">
+          <i class="fa-solid fa-table"></i> Live Results
+        </button>
+        <button class="nav-btn" data-tab="tab-templates">
+          <i class="fa-solid fa-paper-plane"></i> Cold Outreach AI
+        </button>
+      </nav>
+
+      <div class="sidebar-footer">
+        <div class="status-card">
+          <span class="status-dot green"></span>
+          <span>Engine Status: Ready</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="main-content">
+      <!-- Header Bar -->
+      <header class="top-header">
+        <div class="header-title">
+          <div class="brand-banner-badge"><i class="fa-solid fa-crown"></i> MagxxxVot Lead Extractor Engine</div>
+          <h1 id="page-title">LinkedIn Leads Extractor</h1>
+          <p class="subtitle">Extract verified targeted leads across 50+ locations - No scrap data</p>
+        </div>
+        <div class="header-actions">
+          <button id="btn-start" class="btn btn-primary"><i class="fa-solid fa-play"></i> Start Extraction</button>
+          <button id="btn-stop" class="btn btn-danger" disabled><i class="fa-solid fa-stop"></i> Stop</button>
+        </div>
+      </header>
+
+      <!-- Stats Counters -->
+      <section class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon purple"><i class="fa-solid fa-address-book"></i></div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-leads-count">0</span>
+            <span class="stat-label">Total Leads Extracted</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon blue"><i class="fa-solid fa-map-location-dot"></i></div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-locations-progress">0 / 0</span>
+            <span class="stat-label">Locations Processed</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon green"><i class="fa-solid fa-shield-check"></i></div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-quality">98.5%</span>
+            <span class="stat-label">Clean Lead Rate</span>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon orange"><i class="fa-solid fa-spin fa-spinner" id="status-spinner" style="display:none;"></i><i class="fa-solid fa-gauge" id="status-gauge"></i></div>
+          <div class="stat-info">
+            <span class="stat-value" id="stat-status">Idle</span>
+            <span class="stat-label">Live Status</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Tab Content Sections -->
+      <div class="content-wrapper">
+        <!-- TAB 1: LinkedIn Leads Engine -->
+        <section id="tab-linkedin" class="tab-pane active">
+          <div class="card">
+            <h3><i class="fa-brands fa-linkedin text-linkedin"></i> Target Niche & Search Settings</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="niche-select">Category / Niche Pick</label>
+                <select id="niche-select" class="form-control">
+                  <option value="LLC & Business Owners">LLC & Business Owners</option>
+                  <option value="Real Estate & Brokers">Real Estate & Brokers</option>
+                  <option value="Crypto & Web3 Founders">Crypto & Web3 Founders</option>
+                  <option value="Blockchain Developers">Blockchain Developers</option>
+                  <option value="E-Commerce & Shopify Store Owners">E-Commerce & Shopify</option>
+                  <option value="SaaS & Tech Executives">SaaS & Tech Executives</option>
+                  <option value="Marketing & Agency Directors">Marketing & Agency Directors</option>
+                  <option value="Custom">Custom Niche...</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label for="custom-keywords">Specific Keywords / Job Titles</label>
+                <input type="text" id="custom-keywords" class="form-control" placeholder="e.g. Founder, CEO, Investor, Broker">
+              </div>
+
+              <div class="form-group">
+                <label for="quality-threshold">Min Quality Verification Score (<span id="val-quality">80</span>%)</label>
+                <input type="range" id="quality-threshold" class="form-range" min="70" max="95" value="80">
+              </div>
+
+              <div class="form-group full-width">
+                <label>Target Email Domains</label>
+                <div class="checkbox-group">
+                  <label><input type="checkbox" class="domain-check" value="@gmail.com" checked> @gmail.com</label>
+                  <label><input type="checkbox" class="domain-check" value="@yahoo.com" checked> @yahoo.com</label>
+                  <label><input type="checkbox" class="domain-check" value="@outlook.com" checked> @outlook.com</label>
+                  <label><input type="checkbox" class="domain-check" value="@hotmail.com" checked> @hotmail.com</label>
+                  <label><input type="checkbox" class="domain-check" value="@icloud.com"> @icloud.com</label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 2: Multi-Source Extractor -->
+        <section id="tab-extractor" class="tab-pane">
+          <div class="card">
+            <h3><i class="fa-solid fa-globe"></i> Source Selection & Deep Web Engine</h3>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="platform-select">Platform / Source Target</label>
+                <select id="platform-select" class="form-control">
+                  <option value="linkedin">LinkedIn</option>
+                  <option value="facebook">Facebook</option>
+                  <option value="instagram">Instagram</option>
+                  <option value="twitter">Twitter / X</option>
+                  <option value="youtube">YouTube</option>
+                  <option value="google">Google Search</option>
+                  <option value="bing">Bing Search</option>
+                  <option value="custom">Direct Website / URL</option>
+                </select>
+              </div>
+
+              <div class="form-group" id="group-custom-url" style="display: none;">
+                <label for="input-custom-url">Custom Web Page URL</label>
+                <input type="text" id="input-custom-url" class="form-control" placeholder="https://example.com/directory">
+              </div>
+
+              <div class="form-group">
+                <label for="max-results">Max Leads Threshold</label>
+                <input type="number" id="max-results" class="form-control" value="200" min="10" max="5000">
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 3: Location Queue (50+) -->
+        <section id="tab-queue" class="tab-pane">
+          <div class="card">
+            <div class="card-header">
+              <h3><i class="fa-solid fa-list-check"></i> Automated Location Queue Engine (50+ Locations)</h3>
+              <button id="btn-load-sample-locs" class="btn btn-secondary btn-sm"><i class="fa-solid fa-wand-magic-sparkles"></i> Load 50 Top US Cities</button>
+            </div>
+            <p class="help-text">Target down to states, cities, or specific neighborhoods/blocks. Queue as many locations as you need and let it run fully automated.</p>
+            <textarea id="location-queue-input" class="form-control code-textarea" rows="12" placeholder="Miami, FL
+New York, NY
+Austin, TX
+Dallas, TX
+Los Angeles, CA
+Chicago, IL
+Houston, TX
+Phoenix, AZ
+Philadelphia, PA
+San Antonio, TX
+San Diego, CA
+San Jose, CA
+Jacksonville, FL
+Columbus, OH
+Charlotte, NC
+Indianapolis, IN
+San Francisco, CA
+Seattle, WA
+Denver, CO
+Washington, DC"></textarea>
+          </div>
+        </section>
+
+        <!-- TAB 4: Live Results & Table -->
+        <section id="tab-results" class="tab-pane">
+          <div class="card">
+            <div class="results-header">
+              <h3><i class="fa-solid fa-bolt"></i> Live Extracted Leads Data</h3>
+              <div class="export-actions">
+                <input type="text" id="table-search-input" class="form-control form-control-sm" placeholder="🔍 Instant Search leads...">
+                <button id="btn-export-csv" class="btn btn-outline"><i class="fa-solid fa-file-csv"></i> CSV</button>
+                <button id="btn-export-xlsx" class="btn btn-outline"><i class="fa-solid fa-file-excel"></i> XLSX</button>
+                <button id="btn-export-txt" class="btn btn-outline"><i class="fa-solid fa-file-lines"></i> TXT</button>
+                <button id="btn-copy-clipboard" class="btn btn-outline"><i class="fa-solid fa-copy"></i> Copy All</button>
+              </div>
+            </div>
+
+            <div class="current-activity-banner" id="activity-banner">
+              <i class="fa-solid fa-pulse fa-spinner"></i>
+              <span id="activity-text">Ready to launch location queue engine...</span>
+            </div>
+
+            <div class="table-container">
+              <table class="leads-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Name / Lead Contact</th>
+                    <th>Email Address</th>
+                    <th>Phone</th>
+                    <th>Location</th>
+                    <th>Niche / Tag</th>
+                    <th>Source</th>
+                    <th>Clean Score</th>
+                    <th>Outreach</th>
+                  </tr>
+                </thead>
+                <tbody id="leads-table-body">
+                  <tr class="empty-row">
+                    <td colspan="9">No leads extracted yet. Click "Start Extraction" to run live scraper.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- TAB 5: Cold Outreach AI -->
+        <section id="tab-templates" class="tab-pane">
+          <div class="card">
+            <h3><i class="fa-solid fa-paper-plane"></i> Cold Email Campaign Generator</h3>
+            <p class="help-text">Generate personalized cold outreach sequences for any extracted lead with custom merge tags.</p>
+            <div class="form-grid">
+              <div class="form-group">
+                <label for="template-type-select">Campaign Strategy</label>
+                <select id="template-type-select" class="form-control">
+                  <option value="outreach">Direct Cold Outreach</option>
+                  <option value="partnership">Strategic Partnership</option>
+                  <option value="followup">Follow-Up Sequence</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="template-lead-preview">Selected Target Lead</label>
+                <input type="text" id="template-lead-preview" class="form-control" readonly value="Select a lead from Live Results table">
+              </div>
+              <div class="form-group full-width">
+                <label for="template-subject">Email Subject</label>
+                <input type="text" id="template-subject" class="form-control" placeholder="Subject line will generate automatically...">
+              </div>
+              <div class="form-group full-width">
+                <label for="template-body">Email Body</label>
+                <textarea id="template-body" class="form-control code-textarea" rows="8" placeholder="Generated email body sequence..."></textarea>
+              </div>
+              <div class="form-group full-width">
+                <button id="btn-copy-template" class="btn btn-primary"><i class="fa-solid fa-copy"></i> Copy Cold Email Sequence</button>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
