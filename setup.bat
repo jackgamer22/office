@@ -1,9 +1,9 @@
 @echo off
-TITLE MagxxxVot PRO - Lead & Email Extractor Setup
+TITLE MagxxxVot PRO - Lead ^& Email Extractor Setup
 COLOR 0A
 
 echo =======================================================
-echo          MagxxxVot PRO - Lead & Email Extractor
+echo          MagxxxVot PRO - Lead ^& Email Extractor
 echo =======================================================
 echo.
 
@@ -35,7 +35,7 @@ if %errorlevel% neq 0 (
 echo [OK] Dependencies installed successfully.
 echo.
 
-:: Step 3: Launch Web Application & Open Browser
+:: Step 3: Launch Web Application ^& Open Browser
 echo [3/3] Launching MagxxxVot PRO Server on http://localhost:3000 ...
 echo.
 start "" "http://localhost:3000"
