@@ -1,44 +1,64 @@
 @echo off
-TITLE MagxxxVot PRO - Lead ^& Email Extractor Setup
+TITLE MagxxxVot PRO - Automatic Setup ^& Launcher
 COLOR 0A
 
+:: Ensure working directory is set to script folder when double clicked
+cd /d "%~dp0"
+
 echo =======================================================
-echo          MagxxxVot PRO - Lead ^& Email Extractor
+echo     MAGXXIC VAULT / MagxxxVot PRO Setup ^& Launcher
 echo =======================================================
 echo.
 
-:: Step 1: Check Node.js Installation
-echo [1/3] Checking Node.js installation...
-node -v >nul 2>&1
+:: Step 1: Check Node.js Environment
+echo [1/3] Checking Node.js runtime environment...
+where node >nul 2>&1
 if %errorlevel% neq 0 (
-    echo [ERROR] Node.js is not installed or not added to PATH!
-    echo Please download and install Node.js (v18+) from: https://nodejs.org/
+    echo.
+    echo [ERROR] Node.js is not detected on your system PATH!
+    echo Please install Node.js (v18 or higher) from https://nodejs.org/
+    echo After installing Node.js, double-click setup.bat again.
     echo.
     pause
     exit /b 1
 )
 
-FOR /F "tokens=*" %%g IN ('node -v') DO (SET NODE_VER=%%g)
-echo [OK] Node.js version detected: %NODE_VER%
+for /f "delims=" %%v in ('node -v 2^>nul') do set NODE_VERSION=%%v
+echo [OK] Node.js version %NODE_VERSION% detected.
 echo.
 
-:: Step 2: Install NPM Dependencies
-echo [2/3] Installing dependencies (npm install)...
-call npm install
+:: Step 2: Install Dependencies if needed
+echo [2/3] Verifying and installing project dependencies...
+if not exist "node_modules\" (
+    echo Installing package dependencies via npm install...
+    call npm install
+) else (
+    echo node_modules folder detected. Refreshing dependencies...
+    call npm install --no-audit
+)
+
 if %errorlevel% neq 0 (
-    echo [ERROR] Failed to install npm dependencies!
-    echo Please check your internet connection or npm permissions.
+    echo.
+    echo [ERROR] Failed to complete npm install!
+    echo Please check your network connection and retry.
     echo.
     pause
     exit /b 1
 )
-echo [OK] Dependencies installed successfully.
+
+echo [OK] Dependencies ready.
 echo.
 
-:: Step 3: Launch Web Application ^& Open Browser
-echo [3/3] Launching MagxxxVot PRO Server on http://localhost:3000 ...
+:: Step 3: Launch Web App & Server
+echo [3/3] Starting MagxxxVot PRO server...
+echo Server running at http://localhost:3000
 echo.
+
 start "" "http://localhost:3000"
 call npm start
 
-pause
+if %errorlevel% neq 0 (
+    echo.
+    echo [ERROR] Server terminated unexpectedly.
+    pause
+)
